@@ -61,10 +61,24 @@ Tips:
 Look on active Docker containers and it IP addresses:
 > for s in `docker-compose ps -q`; do echo ip of `docker inspect -f "{{.Name}}" $s` is `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $s`; done
 
+<br/><br/><br/>
+********************************
 
+## Production building and Deploy:
 
+********************************
 
+On first - install `js` packages from `www` folder using command (if you doesn't install it yet):  
 
+> www % `yarn` 
+
+For create porduction build of application, go to `www` and run in terminal:  
+
+> www % `yarn lumi-prod`  
+
+Wait above 30 secconds and check on errors in output window. Go to the root directory of propject, and open `prod` folder.  
+
+Heare we can see compiled front-and `js` and raw back-end `php` files above. Put content of this folder to server root directory, and it's already in production ;D
 
 
 
