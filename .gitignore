@@ -1,5 +1,4 @@
 logs/*
-!logs/nginx
 
 .DS_Store
 .vscode
@@ -8,3 +7,4 @@ www/build/
 www/node_modules/*
 www/yarn.lock
 prod/*
+mysql/*
