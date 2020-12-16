@@ -24,7 +24,9 @@ Host of mySQL server will be available at `http://localhost:3306`.
 * easy run: `docker-compose up -d`
 * rebuild containers and run: `docker-compose up -d --force-recreate --build`
 
-For shut it down, run at `./` command `docker-compose down`
+For shut it down, run at `./` command `docker-compose down`  
+
+>* Note: last version of DB downloaded in `./dbinit/...`. Upload it to siquel before start development.
 
 ********************************
 
