@@ -1,0 +1,54 @@
+{
+  "name": "dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:80/",
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "apexcharts": "^3.22.3",
+    "d3": "^6.2.0",
+    "formik": "^2.2.6",
+    "http-proxy-middleware": "^1.0.6",
+    "mdbreact": "^4.27.0",
+    "moment": "^2.29.1",
+    "node-sass": "^5.0.0",
+    "react": "^17.0.1",
+    "react-apexcharts": "^1.3.7",
+    "react-dom": "^17.0.1",
+    "react-icons": "^3.11.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.0",
+    "react-select": "^3.1.1",
+    "react-transition-group": "^4.4.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "dev": "react-scripts dev",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lumi-prod": "react-scripts build && rm -f -r -v ../prod && mkdir -v ../prod && mv build ../prod && cp -v -r app dal index.php ../prod && open ../prod"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

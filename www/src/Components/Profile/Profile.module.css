@@ -1,0 +1,95 @@
+.profile {
+    padding: 32px 25px;
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    grid-gap: 24px;
+    height: 200px;
+}
+
+.imageHolder {
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+}
+
+.imageHolder img {
+    height: 100%;
+    width: auto;
+    max-width: unset;
+    max-height: 140px;
+    left: -12%;
+    position: relative;
+}
+
+.profileCard {
+    background-color: #fff;
+}
+
+.profileName {
+    font-size: 18px;
+    line-height: 24px;
+    color: #373E45;
+    margin-bottom: 13px;
+}
+
+.profileData {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    grid-gap: 12px;
+    margin-bottom: 7px;
+}
+
+.icon {
+    width: 14px;
+    height: 14px;
+}
+
+.gender {
+    font-size: 14px;
+    line-height: 16px;
+    color: #71777C;
+}
+
+.gender:after {
+    display: inline-block;
+    content: " ";
+    background-color: #9FA5AA;
+    width: 1px;
+    height: 16px;
+    margin: -4px 12px;
+}
+
+.ageLabel {
+    font-size: 14px;
+    line-height: 16px;
+    color: #71777C;
+}
+
+.ageValue {
+    font-size: 14px;
+    line-height: 16px;
+    color: #373E45;
+    margin-left: 4px;
+}
+
+.phoneType {
+    font-size: 14px;
+    line-height: 16px;
+    color: #71777C;
+    width: 67px;
+    margin-right: 12px;
+    display: inline-block;
+
+}
+
+.phoneNumber {
+    font-size: 14px;
+    line-height: 16px;
+    color: #373E45;
+}
+
+.profileId {
+    font-size: 14px;
+    line-height: 13px;
+    color: #373E45;
+}

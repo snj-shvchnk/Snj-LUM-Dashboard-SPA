@@ -1,0 +1,13 @@
+.mainChartCanvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+.mainChartCanvas svg {
+    background: #333;
+    margin: 0 auto;
+    display: block;
+}

@@ -1,0 +1,24 @@
+.ellipse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: linear-gradient(221.19deg, rgba(250, 173, 111, 0.5) 14.36%, rgba(239, 71, 106, 0.5) 28.32%, rgba(147, 38, 136, 0.5) 86.79%), #932688;
+    height: 78px;
+    width: 78px;
+    border-radius: 50%;
+}
+
+.count {
+    font-size: 50px;
+    font-family: Rubik;
+    font-weight: 300;
+    line-height: 35px;
+    color: #fff;
+}
+
+.text {
+    font-size: 13px;
+    color: #fff;
+}

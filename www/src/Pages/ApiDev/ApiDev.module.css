@@ -1,0 +1,17 @@
+.apiDevWrapper {
+    padding: 32px;
+    display: grid;
+    height: 100vh;
+    overflow: hidden;
+    grid-template-rows: 200px 1fr;
+}
+
+.apiDevResponce {
+    background-color: #eefeff;
+    padding: 24px;
+    font-size: 80%;
+    overflow: scroll;
+    border-radius: 5px;
+    box-shadow: -2px -5px 15px 2px rgba(0,0,0,0.05);
+    border: 1px solid #fff;
+}

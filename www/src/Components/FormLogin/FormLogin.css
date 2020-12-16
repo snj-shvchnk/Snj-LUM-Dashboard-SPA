@@ -1,0 +1,21 @@
+.icon-check svg {
+    width: 17px;
+    height: 30px;
+   
+}
+.icon-check {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #5F6972;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 2px;
+    transition: all 300ms ease;
+}
+.check .icon-check {
+    background: #00AE8B;
+    border-color: transparent;
+}

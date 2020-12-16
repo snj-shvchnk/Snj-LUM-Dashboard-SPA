@@ -1,0 +1,10 @@
+.labelGroup {
+    display: flex;
+    margin: 5px 0px 10px;
+}
+.label {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20px 1fr;
+    margin-right: 20px;
+}

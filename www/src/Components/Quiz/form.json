@@ -1,0 +1,430 @@
+{
+    "pages": [{
+            "name": "patientOutreach",
+            "elements": [{
+                    "type": "html",
+                    "name": "step1",
+                    "html": "<h3><big>Step 1: Contact patient</big></h3>"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question1",
+                    "title": "<p><strong>Did you reach patient at primary number?</strong></p>",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question2",
+                    "title": "<p><strong>Did you reach patient at secondary number?</strong></p>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "html",
+                    "name": "question3",
+                    "html": "<h3>Step 2: If unreachable</h3>"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question4",
+                    "title": "<strong>Leave a voicemail for patient</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question5",
+                    "title": "<strong>Send patient a follow up email<strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question6",
+                    "title": "<p><strong>Call emergency contact</strong></p>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                }
+            ],
+            "questionTitleLocation": "top",
+            "title": "<h1>Patient Outreach</h1>",
+            "description": "<h2>Contact patient to confirm identity</h2>"
+        },
+        {
+            "name": "deviceConfirmationpage",
+            "elements": [{
+                    "type": "html",
+                    "name": "question23",
+                    "html": "<p><h3>Step 1:&nbsp; Confirm patient&rsquo;s use of device(s)?</h3></p>"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question25",
+                    "title": "<strong>Did you use your device today?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question24",
+                    "title": "<strong>Has anyone else apart from you used the device in the last 48 hours?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question27",
+                    "title": "<strong>Does anyone else ever use your device?",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "html",
+                    "name": "question28",
+                    "html": "<p><h3>Step 2: Confirm placement and use of device</h3></p>"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question26",
+                    "title": "<strong>Did you change arms for this reading?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question29",
+                    "title": "<strong>Did you consume food, caffeine, tobacco and alcohol 30 minutes before?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question30",
+                    "title": "<strong>Did you take your blood pressure right before you wake up?</strong> ",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question31",
+                    "title": "<strong>Did you rest for at least 10 minutes before taking a measurement?<strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                }
+            ],
+            "title": "<h1>Device Confirmation</h1>",
+            "description": "<h2>Confirm patient&rsquo;s use of the device and determine use by any other individuals</h2>"
+        },
+        {
+            "name": "medicationAndDiet",
+            "elements": [{
+                    "type": "html",
+                    "name": "question7",
+                    "html": "<h3>Step 1: Check Medication Adherence</h3>"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question8",
+                    "title": "<strong>Are you taking your medications on time?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question9",
+                    "title": "<strong>Did you miss any medications in the last 5 days?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question10",
+                    "title": "<strong>Did you start taking any new medications in the last 2 weeks?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "html",
+                    "name": "question11",
+                    "html": "<h3>Step 2: Check Change in Diet</h3>"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question12",
+                    "title": "<strong>Are you following a sodium-restricted diet?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question13",
+                    "title": "<strong>Did you eat any of the “Salty Six Foods” in the last 48 hours?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question14",
+                    "title": "<strong>Did you eat out or eat pre-packaged meals in the last 2 weeks?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question15",
+                    "title": "<strong>Do you limit your total fluid intake to 2 quarts (64 oz or 8 cups) per day?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                }
+            ],
+            "title": "<h1>Medication and Diet</h1>",
+            "description": "<h2>Understand patient&rsquo;s adherence to medications or any related changes. Also determine dietary compliance and potential changes to diet.</h2>"
+        },
+        {
+            "name": "lifestyleAndExcercise",
+            "elements": [{
+                    "type": "html",
+                    "name": "question16",
+                    "html": "<h3>Step 1: Exercise</h3>"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question17",
+                    "title": "<strong>Did you miss getting at least 20 mins of exercise (walking, biking, dancing, etc.) a day in the last week?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question18",
+                    "title": "<strong>Do you feel tired or exhausted after a brisk walk?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "html",
+                    "name": "question19",
+                    "html": "<h3>Step 2: Check Life Circumstances</h3>"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question20",
+                    "title": "<strong>Did you have a stressful incident happen in the last 5 days?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question21",
+                    "title": "<strong>Do you feel more anxiety than normal?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question22",
+                    "title": "<strong>Did you lose a friend or loved one recently?</strong>",
+                    "choices": [{
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "colCount": 2
+                }
+            ],
+            "title": "<h1>Lifestyle and Exercise</h1>",
+            "description": "<h2>Evaluate patient&rsquo;s exercise pattern and any potential stressful events they may have experience.</h2>"
+        }
+    ],
+    "showQuestionNumbers": "off"
+}

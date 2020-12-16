@@ -1,0 +1,56 @@
+
+.patientDetails {
+    padding: 0 10px;
+}
+
+.patientDetailsList{
+    padding-top: 20px;
+    margin: 0 20px 20px;
+    border-top: 1px solid #F2F3F4;
+    font-size: 14px;
+    line-height: 27px;
+}
+
+.patientDetailsTitle {
+    color: #71777C;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.patientDetailsList ul {
+    padding-left: 18px;
+}
+
+.patientDetailsList li {
+    font-size: 14px;
+}
+
+.patientDetailsList li span {
+    color: #9FA5AA;
+}
+
+.patientDetailsRow {
+    color: #373E45;
+    font-weight: bold;
+    padding: 3px 0;
+    letter-spacing: -0.2px;
+}
+
+.patientDetailsRow span {
+    color: #71777C;
+    font-weight: normal;
+    letter-spacing: 0.1px;
+}
+
+.patientDetailsList a {
+    margin-top: 2px;
+    display: inline-block;
+    text-decoration: underline;
+    color: #2178C9;
+    cursor: pointer;
+    line-height: 32px;
+}
+
+.patientDetailsList a:hover {
+    color: #3a93e7;
+}

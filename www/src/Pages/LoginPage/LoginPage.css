@@ -1,0 +1,101 @@
+#opacity {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 0.8s ease;
+    background: radial-gradient(78.12% 165.13% at 33.38% 50%, #F5F5F5 0%, #D2D2D2 44.45%, #BABABA 100%);
+}
+
+#spinner {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    opacity: 0;
+    transform:translateX(-50%);
+    transition: all 1s ease;
+}
+#spinner.rotate180 {
+    animation: spin180 1s linear;
+    transform:translateX(-50%) rotate(0deg);
+}
+#spinner.rotate360 {
+    animation: spin360 0.8s linear;
+}
+@keyframes spin180 {
+    0%  {transform:translateX(-50%) rotate(0deg);}
+    100% {transform:translateX(-50%) rotate(-180deg);}   
+}
+@keyframes spin360 {
+    0%  {transform:translateX(-50%) rotate(-180deg);}
+    100% {transform:translateX(-50%) rotate(-270deg);}   
+}
+#opacity.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+.scale-in {
+    animation: scale-in-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-left {
+    animation: slide-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+}
+
+.slide-right {
+    animation: slide-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+}
+
+@keyframes slide-in-fwd-center {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(-1400px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0%) translateY(-50%);
+        opacity: 1;
+        left: 0;
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        transform: translateX(50%) translateY(-50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%) translateY(-50%);
+        opacity: 1;
+        right: 0;
+    }
+}
+
+@keyframes scale-in-center {
+    0% {
+        transform: translateX(-50%) translateY(-50%) scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%) scale(1);
+        opacity: 1;
+    }
+}
+

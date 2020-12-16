@@ -1,0 +1,449 @@
+-- MySQL dump 10.13  Distrib 8.0.15, for Linux (x86_64)
+--
+-- Host: localhost    Database: luminhealth
+-- ------------------------------------------------------
+-- Server version	8.0.15
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8mb4 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `luminhealth`
+--
+
+/*!40000 DROP DATABASE IF EXISTS `luminhealth`*/;
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `luminhealth` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+
+USE `luminhealth`;
+
+--
+-- Table structure for table `Care_Team_Member_Performance`
+--
+
+DROP TABLE IF EXISTS `Care_Team_Member_Performance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Care_Team_Member_Performance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `care_team_member_id` int(11) NOT NULL,
+  `patient_engagement_score` int(11) NOT NULL,
+  `coordination_score` int(11) NOT NULL,
+  `clinical_score` int(11) NOT NULL,
+  `patient_case_load` int(11) NOT NULL,
+  `patient_intervention_load` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Care_Team_Member_Performance`
+--
+
+LOCK TABLES `Care_Team_Member_Performance` WRITE;
+/*!40000 ALTER TABLE `Care_Team_Member_Performance` DISABLE KEYS */;
+INSERT INTO `Care_Team_Member_Performance` VALUES (1,1,95,98,94,321,12,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(2,2,92,86,87,503,21,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(3,3,97,88,92,345,18,'2020-12-02 18:37:25','2020-12-02 18:37:25');
+/*!40000 ALTER TABLE `Care_Team_Member_Performance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Care_Team_Member_Profile`
+--
+
+DROP TABLE IF EXISTS `Care_Team_Member_Profile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Care_Team_Member_Profile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `care_team_member_type` varchar(15) NOT NULL,
+  `government_id` varchar(15) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `middle_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `dob` datetime NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `phone_number` varchar(15) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Care_Team_Member_Profile`
+--
+
+LOCK TABLES `Care_Team_Member_Profile` WRITE;
+/*!40000 ALTER TABLE `Care_Team_Member_Profile` DISABLE KEYS */;
+INSERT INTO `Care_Team_Member_Profile` VALUES (1,'RN','101','Suzie ',NULL,'Roberts','1985-02-07 00:00:00','female','6109874723','suzie@lumi.health','2020-12-02 18:37:25','2020-12-02 18:37:25'),(2,'PharmD','102','Daniel ',NULL,'Poe','1957-04-25 00:00:00','male','7129837821','daniel@lumi.health','2020-12-02 18:37:25','2020-12-02 18:37:25'),(3,'RN','103','Alice',NULL,'Marple','1977-09-15 00:00:00','female','4842918495','alice@hearthospital.edu','2020-12-02 18:37:25','2020-12-02 18:37:25');
+/*!40000 ALTER TABLE `Care_Team_Member_Profile` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Care_Team_Member_Profile_Extended`
+--
+
+DROP TABLE IF EXISTS `Care_Team_Member_Profile_Extended`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Care_Team_Member_Profile_Extended` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `linkId` int(11) NOT NULL,
+  `login` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `roleId` int(11) DEFAULT '0',
+  `permissions` varchar(50) DEFAULT '',
+  `company` varchar(50) DEFAULT NULL,
+  `position` varchar(50) DEFAULT NULL,
+  `photo` varchar(200) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Care_Team_Member_Profile_Extended`
+--
+
+LOCK TABLES `Care_Team_Member_Profile_Extended` WRITE;
+/*!40000 ALTER TABLE `Care_Team_Member_Profile_Extended` DISABLE KEYS */;
+INSERT INTO `Care_Team_Member_Profile_Extended` VALUES (1,1,'login1','pass1',1,'mid','First Company','Top Invizator','u1.png','2020-12-03 18:15:24','2020-12-03 18:15:24'),(2,2,'login2','pass2',2,'md','Second Inc.','Midle Lug','u2.png','2020-12-03 18:15:24','2020-12-03 18:15:24'),(3,3,'login3','pass3',3,'mi','Therd party','Ofcoaster','u3.png','2020-12-03 18:15:24','2020-12-03 18:15:24');
+/*!40000 ALTER TABLE `Care_Team_Member_Profile_Extended` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Intervention_Codes`
+--
+
+DROP TABLE IF EXISTS `Intervention_Codes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Intervention_Codes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Intervention_Codes`
+--
+
+LOCK TABLES `Intervention_Codes` WRITE;
+/*!40000 ALTER TABLE `Intervention_Codes` DISABLE KEYS */;
+INSERT INTO `Intervention_Codes` VALUES (1,'BP Alert','2020-12-02 18:37:25','2020-12-02 18:37:25'),(2,'Weight Alert ','2020-12-02 18:37:25','2020-12-02 18:37:25');
+/*!40000 ALTER TABLE `Intervention_Codes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Interventions`
+--
+
+DROP TABLE IF EXISTS `Interventions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Interventions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lumi_patient_id` int(11) NOT NULL,
+  `care_team_member_id` int(11) NOT NULL,
+  `intervention_code_id` int(11) NOT NULL,
+  `patient_device_id` int(11) NOT NULL,
+  `priority` int(11) NOT NULL,
+  `is_complete` tinyint(1) NOT NULL,
+  `due_date` datetime NOT NULL,
+  `estimated_time` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Interventions`
+--
+
+LOCK TABLES `Interventions` WRITE;
+/*!40000 ALTER TABLE `Interventions` DISABLE KEYS */;
+INSERT INTO `Interventions` VALUES (1,1,1,1,11,1,0,'2020-11-22 00:00:00',30,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(2,2,1,1,22,1,0,'2020-11-22 00:00:00',30,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(3,3,1,1,4,1,0,'2020-11-22 00:00:00',30,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(4,4,1,2,31,2,0,'2020-11-22 00:00:00',20,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(5,2,1,2,28,2,0,'2020-11-23 00:00:00',20,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(6,25,1,2,36,3,0,'2020-11-23 00:00:00',20,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(7,1,1,2,38,3,0,'2020-11-23 00:00:00',20,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(8,25,3,1,9,2,0,'2020-11-22 00:00:00',30,'2020-12-02 18:37:25','2020-12-02 18:37:25');
+/*!40000 ALTER TABLE `Interventions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Interventions_History`
+--
+
+DROP TABLE IF EXISTS `Interventions_History`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Interventions_History` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `care_team_member_id` int(11) NOT NULL,
+  `priority` int(11) NOT NULL,
+  `due_date` datetime NOT NULL,
+  `estimated_time` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Interventions_History`
+--
+
+LOCK TABLES `Interventions_History` WRITE;
+/*!40000 ALTER TABLE `Interventions_History` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Interventions_History` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Patient_Care_Team`
+--
+
+DROP TABLE IF EXISTS `Patient_Care_Team`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Patient_Care_Team` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lumi_patient_id` int(11) NOT NULL,
+  `cardiologist_npi` bigint(20) DEFAULT NULL,
+  `cardiologist_name` varchar(150) NOT NULL,
+  `cardiologist_phone` varchar(15) DEFAULT NULL,
+  `pcp_npi` bigint(20) DEFAULT NULL,
+  `pcp_name` varchar(150) NOT NULL,
+  `pcp_phone` varchar(15) DEFAULT NULL,
+  `care_quarterback` varchar(150) DEFAULT NULL,
+  `care_quarterback_phone` varchar(15) DEFAULT NULL,
+  `clinical_pharmacist` varchar(150) DEFAULT NULL,
+  `clinical_pharmacist_phone` varchar(15) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`,`lumi_patient_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Patient_Care_Team`
+--
+
+LOCK TABLES `Patient_Care_Team` WRITE;
+/*!40000 ALTER TABLE `Patient_Care_Team` DISABLE KEYS */;
+INSERT INTO `Patient_Care_Team` VALUES (1,1,98739471642,'Tom Keyes','2129403718',93756836710,'Yang Zhin','2121748938','Suzie Roberts','95132815405','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(2,2,98739471642,'Tom Keyes','2129403718',93756836710,'Yang Zhin','2121748938','Suzie Roberts','98994201961','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(3,3,98739471642,'Tom Keyes','2129403718',93756836710,'Yang Zhin','2121748938','Suzie Roberts','19572566356','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(4,4,98739471642,'Tom Keyes','2129403718',93756836710,'Yang Zhin','2121748938','Suzie Roberts','60880228664','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(5,5,98739471642,'Tom Keyes','2129403718',93756836710,'Yang Zhin','2121748938','Suzie Roberts','55683447016','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(6,6,98739471642,'Tom Keyes','2129403718',93756836710,'Yang Zhin','2121748938','Suzie Roberts','85776551856','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(7,7,98739471642,'Tom Keyes','2129403718',93756836710,'Yang Zhin','2121748938','Suzie Roberts','71832420995','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(8,8,98739471642,'Tom Keyes','2129403718',54617284715,'Barbara Keen','5164837657','Suzie Roberts','91832452176','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(9,9,98739471642,'Tom Keyes','2129403718',54617284715,'Barbara Keen','5164837657','Suzie Roberts','53665000660','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(10,10,98739471642,'Tom Keyes','2129403718',54617284715,'Barbara Keen','5164837657','Suzie Roberts','72827649538','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(11,11,73548592618,'Nancy Gilbert','5169274672',54617284715,'Barbara Keen','5164837657','Suzie Roberts','13143248477','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(12,12,73548592618,'Nancy Gilbert','5169274672',54617284715,'Barbara Keen','5164837657','Suzie Roberts','17233296537','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(13,13,73548592618,'Nancy Gilbert','5169274672',54617284715,'Barbara Keen','5164837657','Suzie Roberts','36736740020','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(14,14,73548592618,'Nancy Gilbert','5169274672',54617284715,'Barbara Keen','5164837657','Suzie Roberts','31983813254','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(15,15,73548592618,'Nancy Gilbert','5169274672',54617284715,'Barbara Keen','5164837657','Suzie Roberts','39708848977','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(16,16,73548592618,'Nancy Gilbert','5169274672',54617284715,'Barbara Keen','5164837657','Suzie Roberts','92592807890','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(17,17,73548592618,'Nancy Gilbert','5169274672',54617284715,'Barbara Keen','5164837657','Suzie Roberts','63837495282','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(18,18,73548592618,'Nancy Gilbert','5169274672',87362816374,'Lin Chang','2128476374','Suzie Roberts','31409055508','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(19,19,73548592618,'Nancy Gilbert','5169274672',87362816374,'Lin Chang','2128476374','Suzie Roberts','45532794460','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(20,20,73548592618,'Nancy Gilbert','5169274672',87362816374,'Lin Chang','2128476374','Suzie Roberts','33436808543','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(21,21,73548592618,'Nancy Gilbert','5169274672',87362816374,'Lin Chang','2128476374','Suzie Roberts','20585662099','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(22,22,83726374658,'Harry Winter','5169420473',87362816374,'Lin Chang','2128476374','Suzie Roberts','82617887633','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(23,23,83726374658,'Harry Winter','5169420473',87362816374,'Lin Chang','2128476374','Suzie Roberts','71332454636','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(24,24,83726374658,'Harry Winter','5169420473',87362816374,'Lin Chang','2128476374','Suzie Roberts','98808613046','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(25,25,83726374658,'Harry Winter','5169420473',93756836710,'Yang Zhin','2121748938','Suzie Roberts','90045704087','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(26,26,83726374658,'Harry Winter','5169420473',93756836710,'Yang Zhin','2121748938','Suzie Roberts','53802684065','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25'),(27,27,83726374658,'Harry Winter','5169420473',93756836710,'Yang Zhin','2121748938','Suzie Roberts','78876310828','Daniel Poe','7129837821','2020-12-02 18:37:25','2020-12-02 18:37:25');
+/*!40000 ALTER TABLE `Patient_Care_Team` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Patient_Demographic`
+--
+
+DROP TABLE IF EXISTS `Patient_Demographic`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Patient_Demographic` (
+  `lumi_patient_id` int(11) NOT NULL AUTO_INCREMENT,
+  `source_system_patient_id` bigint(20) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `middle_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `dob` datetime NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `primary_phone` varchar(15) NOT NULL,
+  `primary_phone_type` varchar(15) NOT NULL,
+  `secondary_phone` varchar(15) DEFAULT NULL,
+  `secondary_phone_type` varchar(15) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`lumi_patient_id`,`source_system_patient_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Patient_Demographic`
+--
+
+LOCK TABLES `Patient_Demographic` WRITE;
+/*!40000 ALTER TABLE `Patient_Demographic` DISABLE KEYS */;
+INSERT INTO `Patient_Demographic` VALUES (1,18716584,'Bob',NULL,'Smith','1952-05-10 00:00:00','Male','2122950914','Home','2129175520','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(2,1305657,'Sam',NULL,'Meyer','1936-03-23 00:00:00','Male','2122004494','Home','5163043763','Home','2020-12-02 18:37:24','2020-12-02 18:37:24'),(3,6461855,'Shirley',NULL,'Mink','1942-06-22 00:00:00','Female','2122015158','Home','3474796206','Home','2020-12-02 18:37:24','2020-12-02 18:37:24'),(4,16176855,'Stella',NULL,'Jaze','1959-05-31 00:00:00','Female','2122025171','Home','5163143666','Home','2020-12-02 18:37:24','2020-12-02 18:37:24'),(5,67112747,'Demi',NULL,'Ingle','1950-12-03 00:00:00','Female','2122039818','Home','3474346546','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(6,49604359,'Manish',NULL,'Lowe','1939-08-21 00:00:00','Male','2122043788','Home','3474461179','Home','2020-12-02 18:37:24','2020-12-02 18:37:24'),(7,17663130,'Katherine',NULL,'Coulson','1949-10-23 00:00:00','Female','2122058130','Mobile','2122226972','Home','2020-12-02 18:37:24','2020-12-02 18:37:24'),(8,46124535,'Enoch',NULL,'Davison','1945-07-27 00:00:00','Male','2122066187','Mobile','2122239041','Home','2020-12-02 18:37:24','2020-12-02 18:37:24'),(9,34135660,'Elena',NULL,'Hutchings','1947-05-24 00:00:00','Female','2122074348','Mobile','2122243479','Home','2020-12-02 18:37:24','2020-12-02 18:37:24'),(10,5927363390,'Quentin',NULL,'Noel','1938-09-27 00:00:00','Male','2122087332','Home','2122259216','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(11,49571768,'Rachel ',NULL,'Nichols','1934-03-02 00:00:00','Female','2122094900','Home','2122267870','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(12,35146164,'Rae',NULL,'Phelps','1932-04-25 00:00:00','Female','3155325134','Home','2122273068','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(13,25665127,'Lucas',NULL,'Barclay','1925-09-11 00:00:00','Male','2122136290','Home','2122284690','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(14,66475115,'Sierra',NULL,'Long','1955-06-21 00:00:00','Female','2122147800','Mobile','2122294171','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(15,15374326,'Yousef',NULL,'Mclaughlin','1937-03-27 00:00:00','Male','2122156932','Home','2122301431','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(16,50543435,'Maurice',NULL,'Mellor','1927-01-04 00:00:00','Female','2122161205','Home','2122315829','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(17,52205447,'Conna',NULL,'Mayer','1950-04-23 00:00:00','Female','2122175442','Home','2122323082','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(18,16371744,'Steven',NULL,'Atkinson','1920-03-08 00:00:00','Male','2122187852','Home','2122332092','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(19,46685359,'Alexander',NULL,'Holden','1942-09-15 00:00:00','Male','2122197628','Mobile','2122347801','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(20,1136251900,'Sadia',NULL,'Major','1964-03-26 00:00:00','Female','2122204391','Home','2122359793','Home','2020-12-02 18:37:24','2020-12-02 18:37:24'),(21,12632142,'Clarice',NULL,'Wicks','1948-07-23 00:00:00','Female','2122216816','Mobile','2122363948','Home','2020-12-02 18:37:24','2020-12-02 18:37:24'),(22,12265165,'Aaran',NULL,'Hurley','1962-10-03 00:00:00','Male','3155330670','Home','2122371914','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(23,64506712,'Isabel',NULL,'Gill','1930-07-02 00:00:00','Female','5162996944','Home','3474477850','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(24,2776652,'Luis',NULL,'Pate','1957-12-03 00:00:00','Male','3474786187','Mobile','3474731172','Home','2020-12-02 18:37:24','2020-12-02 18:37:24'),(25,1729045,'Ralph',NULL,'Mclellan','1956-05-18 00:00:00','Male','5163205433','Home','3474449490','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(26,89164592750,'Jack',NULL,'Ryan','1985-04-10 00:00:00','Male ','3155378826','Mobile','3474708364','Mobile','2020-12-02 18:37:24','2020-12-02 18:37:24'),(27,938729716,'Akbar',NULL,'Khan','1978-05-14 00:00:00','Male','5163794327','Mobile','5162863450','Home','2020-12-02 18:37:24','2020-12-02 18:37:24');
+/*!40000 ALTER TABLE `Patient_Demographic` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Patient_Device`
+--
+
+DROP TABLE IF EXISTS `Patient_Device`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Patient_Device` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lumi_patient_id` int(11) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `manufactor` varchar(50) NOT NULL,
+  `model` varchar(50) NOT NULL,
+  `serial` varchar(50) NOT NULL,
+  `ship_date` datetime DEFAULT NULL,
+  `deliviered_date` datetime DEFAULT NULL,
+  `activated_date` datetime DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`,`type`)
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Patient_Device`
+--
+
+LOCK TABLES `Patient_Device` WRITE;
+/*!40000 ALTER TABLE `Patient_Device` DISABLE KEYS */;
+INSERT INTO `Patient_Device` VALUES (1,2,'BP ','US Devices Inc.','BPM-2019d','19DFB-26','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(2,25,'BP ','US Devices Inc.','BPM-2019d','84DFB-24','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(3,24,'BP ','US Devices Inc.','BPM-2019d','20DAB-26','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(4,3,'BP ','US Devices Inc.','BPM-2019d','19DFG-26','2019-10-01 00:00:00',NULL,NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(5,22,'BP ','US Devices Inc.','BPM-2019d','79DFB-26','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(6,21,'BP ','US Devices Inc.','BPM-2019d','93DFB-26','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(7,15,'BP ','US Devices Inc.','BPM-2019d','83DFB-65','2019-10-01 00:00:00','2019-10-12 00:00:00',NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(8,4,'BP ','US Devices Inc.','BPM-2019d','19DFB-56','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(9,18,'BP ','US Devices Inc.','BPM-2019d','01DFB-26','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(10,7,'BP ','US Devices Inc.','BPM-2019d','19DFB-26','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(11,1,'BP ','US Devices Inc.','BPM-2019d','65TFB-91','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(12,13,'BP ','US Devices Inc.','BPM-2019d','19KLB-26','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(13,9,'BP ','US Devices Inc.','BPM-2019d','26DXE-26','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(14,12,'BP ','US Devices Inc.','BPM-2019d','83DFB-26','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(15,8,'BP ','US Devices Inc.','BPM-2019d','87DPB-26','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(16,19,'BP ','US Devices Inc.','BPM-2019d','19DFB-26','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-10 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(17,11,'BP ','US Devices Inc.','BPM-2019d','31DFB-26','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-12 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(18,6,'BP ','US Devices Inc.','BPM-2019d','92DFB-26','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-11-01 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(19,16,'BP ','US Devices Inc.','BPM-2020f','13DFB-26','2020-11-02 00:00:00','2020-11-15 00:00:00',NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(20,17,'BP ','US Devices Inc.','BPM-2020f','49DFB-26','2020-11-15 00:00:00','2020-11-20 00:00:00',NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(21,23,'BP ','US Devices Inc.','BPM-2020f','59DFB-26','2020-11-21 00:00:00',NULL,NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(22,14,'BP ','US Devices Inc.','BPM-2020f','19DFB-26','2020-10-31 00:00:00',NULL,NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(23,5,'BP ','US Devices Inc.','BPM-2020f','65XFB-26','2020-07-06 00:00:00','2020-07-15 00:00:00','2020-07-15 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(24,27,'BP ','US Devices Inc.','BPM-2020f','89DFB-26','2020-05-22 00:00:00','2020-05-29 00:00:00','2020-06-04 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(25,20,'BP ','US Devices Inc.','BPM-2020f','23NFB-24','2020-09-09 00:00:00','2020-09-13 00:00:00','2020-09-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(26,10,'BP ','US Devices Inc.','BPM-2020f','67DLB-94','2020-07-17 00:00:00','2020-07-22 00:00:00','2020-08-01 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(27,26,'BP ','US Devices Inc.','BPM-2020f','51HJB-26','2020-11-19 00:00:00',NULL,NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(28,2,'Scale','US WeightScale Inc.','WSV-2019g','XA9810834','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(29,25,'Scale','US WeightScale Inc.','WSV-2019g','KM1257923','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(30,24,'Scale','US WeightScale Inc.','WSV-2019g','KI12094576','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(31,3,'Scale','US WeightScale Inc.','WSV-2019g','PO1308573','2019-10-01 00:00:00','2019-10-12 00:00:00',NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(32,22,'Scale','US WeightScale Inc.','WSV-2019g','EI03567618','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(33,21,'Scale','US WeightScale Inc.','WSV-2019g','RE39586710','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(34,15,'Scale','US WeightScale Inc.','WSV-2019g','KQ1034576','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(35,4,'Scale','US WeightScale Inc.','WSV-2019g','LM2305762','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(36,18,'Scale','US WeightScale Inc.','WSV-2019g','QS3576702',NULL,NULL,NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(37,7,'Scale','US WeightScale Inc.','WSV-2019g','LQ15087639','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(38,1,'Scale','US WeightScale Inc.','WSV-2019g','HI26074672','2019-10-01 00:00:00','2019-10-12 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(39,13,'Scale','US WeightScale Inc.','WSV-2019g','OP203976','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(40,9,'Scale','US WeightScale Inc.','WSV-2019g','SK3967023','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(41,12,'Scale','US WeightScale Inc.','WSV-2019g','PC5976023','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(42,8,'Scale','US WeightScale Inc.','WSV-2019g','HD3057203','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(43,19,'Scale','US WeightScale Inc.','WSV-2019g','LM235792','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-14 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(44,11,'Scale','US WeightScale Inc.','WSV-2019g','KR2357026','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-10-12 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(45,6,'Scale','US WeightScale Inc.','WSV-2019g','DE2046723','2019-10-01 00:00:00','2019-10-10 00:00:00','2019-11-01 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(46,16,'Scale','US WeightScale Inc.','WSV-2020b','LO340682','2020-11-02 00:00:00','2020-11-15 00:00:00',NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(47,17,'Scale','US WeightScale Inc.','WSV-2020b','UI40682307','2020-11-15 00:00:00','2020-11-20 00:00:00',NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(48,23,'Scale','US WeightScale Inc.','WSV-2020b','WE230671','2020-11-21 00:00:00','2020-11-08 00:00:00',NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(49,14,'Scale','US WeightScale Inc.','WSV-2020b','ZT30682376','2020-10-31 00:00:00',NULL,NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(50,5,'Scale','US WeightScale Inc.','WSV-2020b','LE306736','2020-07-10 00:00:00','2020-07-18 00:00:00','2020-07-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(51,27,'Scale','US WeightScale Inc.','WSV-2020b','LO26723058','2020-05-22 00:00:00','2020-05-29 00:00:00','2020-06-02 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(52,20,'Scale','US WeightScale Inc.','WSV-2020b','NH239723','2020-09-09 00:00:00','2020-09-13 00:00:00','2020-09-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(53,10,'Scale','US WeightScale Inc.','WSV-2020b','JK2367035','2020-07-20 00:00:00','2020-07-28 00:00:00','2020-07-28 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(54,26,'Scale','US WeightScale Inc.','WSV-2020b','BO236706','2020-11-20 00:00:00',NULL,NULL,'2020-12-02 18:37:24','2020-12-02 18:37:24');
+/*!40000 ALTER TABLE `Patient_Device` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Patient_Device_BP`
+--
+
+DROP TABLE IF EXISTS `Patient_Device_BP`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Patient_Device_BP` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lumi_patient_id` int(11) NOT NULL,
+  `patient_device_id` int(11) NOT NULL,
+  `reading_datetime` datetime NOT NULL,
+  `diastolic_value` int(11) NOT NULL,
+  `systolic_value` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=237 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Patient_Device_BP`
+--
+
+LOCK TABLES `Patient_Device_BP` WRITE;
+/*!40000 ALTER TABLE `Patient_Device_BP` DISABLE KEYS */;
+INSERT INTO `Patient_Device_BP` VALUES (1,1,11,'2019-10-14 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(2,1,11,'2019-10-21 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(3,1,11,'2019-10-28 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(4,1,11,'2019-11-04 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(5,1,11,'2019-11-11 08:00:00',81,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(6,1,11,'2019-11-18 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(7,1,11,'2019-11-25 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(8,1,11,'2019-12-02 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(9,1,11,'2019-12-09 08:00:00',80,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(10,1,11,'2019-12-16 08:00:00',83,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(11,1,11,'2019-12-23 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(12,1,11,'2019-12-30 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(13,1,11,'2020-01-06 08:00:00',82,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(14,1,11,'2020-01-13 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(15,1,11,'2020-01-20 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(16,1,11,'2020-01-27 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(17,1,11,'2020-02-03 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(18,1,11,'2020-02-10 08:00:00',83,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(19,1,11,'2020-02-17 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(20,1,11,'2020-02-24 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(21,1,11,'2020-03-02 08:00:00',80,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(22,1,11,'2020-03-09 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(23,1,11,'2020-03-16 08:00:00',82,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(24,1,11,'2020-03-23 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(25,1,11,'2020-03-30 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(26,1,11,'2020-04-06 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(27,1,11,'2020-04-13 08:00:00',80,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(28,1,11,'2020-04-20 08:00:00',81,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(29,1,11,'2020-04-27 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(30,1,11,'2020-05-04 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(31,1,11,'2020-05-11 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(32,1,11,'2020-05-18 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(33,1,11,'2020-05-25 08:00:00',83,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(34,1,11,'2020-06-01 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(35,1,11,'2020-06-08 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(36,1,11,'2020-06-15 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(37,1,11,'2020-06-22 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(38,1,11,'2020-06-29 08:00:00',80,126,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(39,1,11,'2020-07-06 08:00:00',83,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(40,1,11,'2020-07-13 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(41,1,11,'2020-07-20 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(42,1,11,'2020-07-27 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(43,1,11,'2020-08-03 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(44,1,11,'2020-08-10 08:00:00',82,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(45,1,11,'2020-08-17 08:00:00',80,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(46,1,11,'2020-08-24 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(47,1,11,'2020-08-31 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(48,1,11,'2020-09-07 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(49,1,11,'2020-09-14 08:00:00',81,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(50,1,11,'2020-09-21 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(51,1,11,'2020-09-28 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(52,1,11,'2020-10-05 08:00:00',88,131,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(53,1,11,'2020-10-12 08:00:00',85,130,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(54,1,11,'2020-10-19 08:00:00',88,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(55,1,11,'2020-10-26 08:00:00',90,136,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(56,1,11,'2020-11-02 08:00:00',88,140,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(57,1,11,'2020-11-09 08:00:00',89,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(58,1,11,'2020-11-16 08:00:00',90,140,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(59,1,11,'2020-11-23 08:00:00',118,180,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(60,25,9,'2019-10-14 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(61,25,9,'2019-10-21 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(62,25,9,'2019-10-28 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(63,25,9,'2019-11-04 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(64,25,9,'2019-11-11 08:00:00',81,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(65,25,9,'2019-11-18 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(66,25,9,'2019-11-25 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(67,25,9,'2019-12-02 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(68,25,9,'2019-12-09 08:00:00',80,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(69,25,9,'2019-12-16 08:00:00',83,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(70,25,9,'2019-12-23 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(71,25,9,'2019-12-30 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(72,25,9,'2020-01-06 08:00:00',82,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(73,25,9,'2020-01-13 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(74,25,9,'2020-01-20 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(75,25,9,'2020-01-27 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(76,25,9,'2020-02-03 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(77,25,9,'2020-02-10 08:00:00',83,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(78,25,9,'2020-02-17 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(79,25,9,'2020-02-24 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(80,25,9,'2020-03-02 08:00:00',80,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(81,25,9,'2020-03-09 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(82,25,9,'2020-03-16 08:00:00',82,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(83,25,9,'2020-03-23 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(84,25,9,'2020-03-30 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(85,25,9,'2020-04-06 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(86,25,9,'2020-04-13 08:00:00',80,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(87,25,9,'2020-04-20 08:00:00',81,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(88,25,9,'2020-04-27 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(89,25,9,'2020-05-04 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(90,25,9,'2020-05-11 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(91,25,9,'2020-05-18 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(92,25,9,'2020-05-25 08:00:00',83,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(93,25,9,'2020-06-01 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(94,25,9,'2020-06-08 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(95,25,9,'2020-06-15 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(96,25,9,'2020-06-22 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(97,25,9,'2020-06-29 08:00:00',80,126,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(98,25,9,'2020-07-06 08:00:00',83,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(99,25,9,'2020-07-13 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(100,25,9,'2020-07-20 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(101,25,9,'2020-07-27 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(102,25,9,'2020-08-03 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(103,25,9,'2020-08-10 08:00:00',82,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(104,25,9,'2020-08-17 08:00:00',80,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(105,25,9,'2020-08-24 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(106,25,9,'2020-08-31 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(107,25,9,'2020-09-07 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(108,25,9,'2020-09-14 08:00:00',81,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(109,25,9,'2020-09-21 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(110,25,9,'2020-09-28 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(111,25,9,'2020-10-05 08:00:00',88,131,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(112,25,9,'2020-10-12 08:00:00',85,130,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(113,25,9,'2020-10-19 08:00:00',88,131,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(114,25,9,'2020-10-26 08:00:00',90,130,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(115,25,9,'2020-11-02 08:00:00',88,131,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(116,25,9,'2020-11-09 08:00:00',89,132,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(117,25,9,'2020-11-16 08:00:00',90,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(118,25,9,'2020-11-23 08:00:00',90,130,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(119,2,22,'2019-10-14 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(120,2,22,'2019-10-21 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(121,2,22,'2019-10-28 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(122,2,22,'2019-11-04 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(123,2,22,'2019-11-11 08:00:00',81,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(124,2,22,'2019-11-18 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(125,2,22,'2019-11-25 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(126,2,22,'2019-12-02 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(127,2,22,'2019-12-09 08:00:00',80,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(128,2,22,'2019-12-16 08:00:00',83,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(129,2,22,'2019-12-23 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(130,2,22,'2019-12-30 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(131,2,22,'2020-01-06 08:00:00',82,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(132,2,22,'2020-01-13 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(133,2,22,'2020-01-20 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(134,2,22,'2020-01-27 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(135,2,22,'2020-02-03 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(136,2,22,'2020-02-10 08:00:00',83,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(137,2,22,'2020-02-17 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(138,2,22,'2020-02-24 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(139,2,22,'2020-03-02 08:00:00',80,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(140,2,22,'2020-03-09 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(141,2,22,'2020-03-16 08:00:00',82,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(142,2,22,'2020-03-23 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(143,2,22,'2020-03-30 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(144,2,22,'2020-04-06 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(145,2,22,'2020-04-13 08:00:00',80,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(146,2,22,'2020-04-20 08:00:00',81,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(147,2,22,'2020-04-27 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(148,2,22,'2020-05-04 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(149,2,22,'2020-05-11 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(150,2,22,'2020-05-18 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(151,2,22,'2020-05-25 08:00:00',83,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(152,2,22,'2020-06-01 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(153,2,22,'2020-06-08 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(154,2,22,'2020-06-15 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(155,2,22,'2020-06-22 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(156,2,22,'2020-06-29 08:00:00',80,126,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(157,2,22,'2020-07-06 08:00:00',83,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(158,2,22,'2020-07-13 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(159,2,22,'2020-07-20 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(160,2,22,'2020-07-27 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(161,2,22,'2020-08-03 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(162,2,22,'2020-08-10 08:00:00',82,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(163,2,22,'2020-08-17 08:00:00',80,127,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(164,2,22,'2020-08-24 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(165,2,22,'2020-08-31 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(166,2,22,'2020-09-07 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(167,2,22,'2020-09-14 08:00:00',81,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(168,2,22,'2020-09-21 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(169,2,22,'2020-09-28 08:00:00',80,128,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(170,2,22,'2020-10-05 08:00:00',88,131,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(171,2,22,'2020-10-12 08:00:00',85,130,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(172,2,22,'2020-10-19 08:00:00',88,131,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(173,2,22,'2020-10-26 08:00:00',90,130,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(174,2,22,'2020-11-02 08:00:00',88,131,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(175,2,22,'2020-11-09 08:00:00',89,132,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(176,2,22,'2020-11-16 08:00:00',90,129,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(177,2,22,'2020-11-23 08:00:00',90,130,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(178,3,4,'2019-10-14 08:00:00',82,132,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(179,3,4,'2019-10-21 08:00:00',81,136,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(180,3,4,'2019-10-28 08:00:00',83,134,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(181,3,4,'2019-11-04 08:00:00',83,136,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(182,3,4,'2019-11-11 08:00:00',82,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(183,3,4,'2019-11-18 08:00:00',84,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(184,3,4,'2019-11-25 08:00:00',82,136,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(185,3,4,'2019-12-02 08:00:00',80,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(186,3,4,'2019-12-09 08:00:00',83,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(187,3,4,'2019-12-16 08:00:00',84,137,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(188,3,4,'2019-12-23 08:00:00',86,139,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(189,3,4,'2019-12-30 08:00:00',84,140,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(190,3,4,'2020-01-06 08:00:00',85,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(191,3,4,'2020-01-13 08:00:00',86,137,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(192,3,4,'2020-01-20 08:00:00',84,139,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(193,3,4,'2020-01-27 08:00:00',85,140,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(194,3,4,'2020-02-03 08:00:00',83,136,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(195,3,4,'2020-02-10 08:00:00',86,140,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(196,3,4,'2020-02-17 08:00:00',88,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(197,3,4,'2020-02-24 08:00:00',85,142,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(198,3,4,'2020-03-02 08:00:00',87,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(199,3,4,'2020-03-09 08:00:00',88,140,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(200,3,4,'2020-03-16 08:00:00',84,139,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(201,3,4,'2020-03-23 08:00:00',86,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(202,3,4,'2020-03-30 08:00:00',86,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(203,3,4,'2020-04-06 08:00:00',85,140,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(204,3,4,'2020-04-13 08:00:00',87,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(205,3,4,'2020-04-20 08:00:00',88,140,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(206,3,4,'2020-04-27 08:00:00',84,139,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(207,3,4,'2020-05-04 08:00:00',84,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(208,3,4,'2020-05-11 08:00:00',84,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(209,3,4,'2020-05-18 08:00:00',85,137,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(210,3,4,'2020-05-25 08:00:00',85,139,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(211,3,4,'2020-06-01 08:00:00',87,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(212,3,4,'2020-06-08 08:00:00',85,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(213,3,4,'2020-06-15 08:00:00',88,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(214,3,4,'2020-06-22 08:00:00',86,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(215,3,4,'2020-06-29 08:00:00',87,136,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(216,3,4,'2020-07-06 08:00:00',85,140,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(217,3,4,'2020-07-13 08:00:00',87,141,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(218,3,4,'2020-07-20 08:00:00',86,135,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(219,3,4,'2020-07-27 08:00:00',88,130,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(220,3,4,'2020-08-03 08:00:00',86,135,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(221,3,4,'2020-08-10 08:00:00',86,130,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(222,3,4,'2020-08-17 08:00:00',87,130,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(223,3,4,'2020-08-24 08:00:00',89,133,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(224,3,4,'2020-08-31 08:00:00',86,135,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(225,3,4,'2020-09-07 08:00:00',84,134,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(226,3,4,'2020-09-14 08:00:00',86,133,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(227,3,4,'2020-09-21 08:00:00',86,132,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(228,3,4,'2020-09-28 08:00:00',85,132,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(229,3,4,'2020-10-05 08:00:00',88,135,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(230,3,4,'2020-10-12 08:00:00',86,136,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(231,3,4,'2020-10-19 08:00:00',87,135,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(232,3,4,'2020-10-26 08:00:00',86,137,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(233,3,4,'2020-11-02 08:00:00',88,137,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(234,3,4,'2020-11-09 08:00:00',87,138,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(235,3,4,'2020-11-16 08:00:00',88,140,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(236,3,4,'2020-11-23 08:00:00',88,143,'2020-12-02 18:37:25','2020-12-02 18:37:25');
+/*!40000 ALTER TABLE `Patient_Device_BP` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Patient_Device_Scale`
+--
+
+DROP TABLE IF EXISTS `Patient_Device_Scale`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Patient_Device_Scale` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lumi_patient_id` int(11) NOT NULL,
+  `patient_device_id` int(11) NOT NULL,
+  `reading_datetime` datetime NOT NULL,
+  `weight_lbs` decimal(10,0) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=237 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Patient_Device_Scale`
+--
+
+LOCK TABLES `Patient_Device_Scale` WRITE;
+/*!40000 ALTER TABLE `Patient_Device_Scale` DISABLE KEYS */;
+INSERT INTO `Patient_Device_Scale` VALUES (1,1,38,'2019-10-14 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(2,1,38,'2019-10-21 08:00:00',280,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(3,1,38,'2019-10-28 08:00:00',283,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(4,1,38,'2019-11-04 08:00:00',282,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(5,1,38,'2019-11-11 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(6,1,38,'2019-11-18 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(7,1,38,'2019-11-25 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(8,1,38,'2019-12-02 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(9,1,38,'2019-12-09 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(10,1,38,'2019-12-16 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(11,1,38,'2019-12-23 08:00:00',286,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(12,1,38,'2019-12-30 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(13,1,38,'2020-01-06 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(14,1,38,'2020-01-13 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(15,1,38,'2020-01-20 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(16,1,38,'2020-01-27 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(17,1,38,'2020-02-03 08:00:00',289,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(18,1,38,'2020-02-10 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(19,1,38,'2020-02-17 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(20,1,38,'2020-02-24 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(21,1,38,'2020-03-02 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(22,1,38,'2020-03-09 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(23,1,38,'2020-03-16 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(24,1,38,'2020-03-23 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(25,1,38,'2020-03-30 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(26,1,38,'2020-04-06 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(27,1,38,'2020-04-13 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(28,1,38,'2020-04-20 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(29,1,38,'2020-04-27 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(30,1,38,'2020-05-04 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(31,1,38,'2020-05-11 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(32,1,38,'2020-05-18 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(33,1,38,'2020-05-25 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(34,1,38,'2020-06-01 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(35,1,38,'2020-06-08 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(36,1,38,'2020-06-15 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(37,1,38,'2020-06-22 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(38,1,38,'2020-06-29 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(39,1,38,'2020-07-06 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(40,1,38,'2020-07-13 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(41,1,38,'2020-07-20 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(42,1,38,'2020-07-27 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(43,1,38,'2020-08-03 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(44,1,38,'2020-08-10 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(45,1,38,'2020-08-17 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(46,1,38,'2020-08-24 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(47,1,38,'2020-08-31 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(48,1,38,'2020-09-07 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(49,1,38,'2020-09-14 08:00:00',270,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(50,1,38,'2020-09-21 08:00:00',270,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(51,1,38,'2020-09-28 08:00:00',272,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(52,1,38,'2020-10-05 08:00:00',274,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(53,1,38,'2020-10-12 08:00:00',275,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(54,1,38,'2020-10-19 08:00:00',274,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(55,1,38,'2020-10-26 08:00:00',278,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(56,1,38,'2020-11-02 08:00:00',275,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(57,1,38,'2020-11-09 08:00:00',280,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(58,1,38,'2020-11-16 08:00:00',282,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(59,1,38,'2020-11-23 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(60,25,36,'2019-10-14 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(61,25,36,'2019-10-21 08:00:00',280,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(62,25,36,'2019-10-28 08:00:00',283,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(63,25,36,'2019-11-04 08:00:00',282,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(64,25,36,'2019-11-11 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(65,25,36,'2019-11-18 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(66,25,36,'2019-11-25 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(67,25,36,'2019-12-02 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(68,25,36,'2019-12-09 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(69,25,36,'2019-12-16 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(70,25,36,'2019-12-23 08:00:00',286,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(71,25,36,'2019-12-30 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(72,25,36,'2020-01-06 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(73,25,36,'2020-01-13 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(74,25,36,'2020-01-20 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(75,25,36,'2020-01-27 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(76,25,36,'2020-02-03 08:00:00',289,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(77,25,36,'2020-02-10 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(78,25,36,'2020-02-17 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(79,25,36,'2020-02-24 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(80,25,36,'2020-03-02 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(81,25,36,'2020-03-09 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(82,25,36,'2020-03-16 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(83,25,36,'2020-03-23 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(84,25,36,'2020-03-30 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(85,25,36,'2020-04-06 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(86,25,36,'2020-04-13 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(87,25,36,'2020-04-20 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(88,25,36,'2020-04-27 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(89,25,36,'2020-05-04 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(90,25,36,'2020-05-11 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(91,25,36,'2020-05-18 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(92,25,36,'2020-05-25 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(93,25,36,'2020-06-01 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(94,25,36,'2020-06-08 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(95,25,36,'2020-06-15 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(96,25,36,'2020-06-22 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(97,25,36,'2020-06-29 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(98,25,36,'2020-07-06 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(99,25,36,'2020-07-13 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(100,25,36,'2020-07-20 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(101,25,36,'2020-07-27 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(102,25,36,'2020-08-03 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(103,25,36,'2020-08-10 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(104,25,36,'2020-08-17 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(105,25,36,'2020-08-24 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(106,25,36,'2020-08-31 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(107,25,36,'2020-09-07 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(108,25,36,'2020-09-14 08:00:00',270,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(109,25,36,'2020-09-21 08:00:00',270,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(110,25,36,'2020-09-28 08:00:00',272,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(111,25,36,'2020-10-05 08:00:00',274,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(112,25,36,'2020-10-12 08:00:00',275,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(113,25,36,'2020-10-19 08:00:00',274,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(114,25,36,'2020-10-26 08:00:00',278,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(115,25,36,'2020-11-02 08:00:00',275,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(116,25,36,'2020-11-09 08:00:00',278,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(117,25,36,'2020-11-16 08:00:00',280,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(118,25,36,'2020-11-23 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(119,2,28,'2019-10-14 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(120,2,28,'2019-10-21 08:00:00',280,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(121,2,28,'2019-10-28 08:00:00',283,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(122,2,28,'2019-11-04 08:00:00',282,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(123,2,28,'2019-11-11 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(124,2,28,'2019-11-18 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(125,2,28,'2019-11-25 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(126,2,28,'2019-12-02 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(127,2,28,'2019-12-09 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(128,2,28,'2019-12-16 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(129,2,28,'2019-12-23 08:00:00',286,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(130,2,28,'2019-12-30 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(131,2,28,'2020-01-06 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(132,2,28,'2020-01-13 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(133,2,28,'2020-01-20 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(134,2,28,'2020-01-27 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(135,2,28,'2020-02-03 08:00:00',289,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(136,2,28,'2020-02-10 08:00:00',287,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(137,2,28,'2020-02-17 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(138,2,28,'2020-02-24 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(139,2,28,'2020-03-02 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(140,2,28,'2020-03-09 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(141,2,28,'2020-03-16 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(142,2,28,'2020-03-23 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(143,2,28,'2020-03-30 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(144,2,28,'2020-04-06 08:00:00',290,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(145,2,28,'2020-04-13 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(146,2,28,'2020-04-20 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(147,2,28,'2020-04-27 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(148,2,28,'2020-05-04 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(149,2,28,'2020-05-11 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(150,2,28,'2020-05-18 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(151,2,28,'2020-05-25 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(152,2,28,'2020-06-01 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(153,2,28,'2020-06-08 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(154,2,28,'2020-06-15 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(155,2,28,'2020-06-22 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(156,2,28,'2020-06-29 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(157,2,28,'2020-07-06 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(158,2,28,'2020-07-13 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(159,2,28,'2020-07-20 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(160,2,28,'2020-07-27 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(161,2,28,'2020-08-03 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(162,2,28,'2020-08-10 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(163,2,28,'2020-08-17 08:00:00',285,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(164,2,28,'2020-08-24 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(165,2,28,'2020-08-31 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(166,2,28,'2020-09-07 08:00:00',288,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(167,2,28,'2020-09-14 08:00:00',270,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(168,2,28,'2020-09-21 08:00:00',270,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(169,2,28,'2020-09-28 08:00:00',272,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(170,2,28,'2020-10-05 08:00:00',274,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(171,2,28,'2020-10-12 08:00:00',275,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(172,2,28,'2020-10-19 08:00:00',274,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(173,2,28,'2020-10-26 08:00:00',278,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(174,2,28,'2020-11-02 08:00:00',275,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(175,2,28,'2020-11-09 08:00:00',278,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(176,2,28,'2020-11-16 08:00:00',280,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(177,2,28,'2020-11-23 08:00:00',281,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(178,3,31,'2019-10-14 08:00:00',181,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(179,3,31,'2019-10-21 08:00:00',180,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(180,3,31,'2019-10-28 08:00:00',183,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(181,3,31,'2019-11-04 08:00:00',182,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(182,3,31,'2019-11-11 08:00:00',181,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(183,3,31,'2019-11-18 08:00:00',181,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(184,3,31,'2019-11-25 08:00:00',181,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(185,3,31,'2019-12-02 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(186,3,31,'2019-12-09 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(187,3,31,'2019-12-16 08:00:00',187,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(188,3,31,'2019-12-23 08:00:00',186,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(189,3,31,'2019-12-30 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(190,3,31,'2020-01-06 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(191,3,31,'2020-01-13 08:00:00',187,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(192,3,31,'2020-01-20 08:00:00',187,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(193,3,31,'2020-01-27 08:00:00',190,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(194,3,31,'2020-02-03 08:00:00',189,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(195,3,31,'2020-02-10 08:00:00',187,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(196,3,31,'2020-02-17 08:00:00',190,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(197,3,31,'2020-02-24 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(198,3,31,'2020-03-02 08:00:00',190,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(199,3,31,'2020-03-09 08:00:00',190,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(200,3,31,'2020-03-16 08:00:00',190,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(201,3,31,'2020-03-23 08:00:00',190,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(202,3,31,'2020-03-30 08:00:00',190,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(203,3,31,'2020-04-06 08:00:00',190,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(204,3,31,'2020-04-13 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(205,3,31,'2020-04-20 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(206,3,31,'2020-04-27 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(207,3,31,'2020-05-04 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(208,3,31,'2020-05-11 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(209,3,31,'2020-05-18 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(210,3,31,'2020-05-25 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(211,3,31,'2020-06-01 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(212,3,31,'2020-06-08 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(213,3,31,'2020-06-15 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(214,3,31,'2020-06-22 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(215,3,31,'2020-06-29 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(216,3,31,'2020-07-06 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(217,3,31,'2020-07-13 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(218,3,31,'2020-07-20 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(219,3,31,'2020-07-27 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(220,3,31,'2020-08-03 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(221,3,31,'2020-08-10 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(222,3,31,'2020-08-17 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(223,3,31,'2020-08-24 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(224,3,31,'2020-08-31 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(225,3,31,'2020-09-07 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(226,3,31,'2020-09-14 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(227,3,31,'2020-09-21 08:00:00',186,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(228,3,31,'2020-09-28 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(229,3,31,'2020-10-05 08:00:00',188,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(230,3,31,'2020-10-12 08:00:00',186,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(231,3,31,'2020-10-19 08:00:00',187,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(232,3,31,'2020-10-26 08:00:00',185,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(233,3,31,'2020-11-02 08:00:00',181,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(234,3,31,'2020-11-09 08:00:00',180,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(235,3,31,'2020-11-16 08:00:00',181,'2020-12-02 18:37:25','2020-12-02 18:37:25'),(236,3,31,'2020-11-23 08:00:00',182,'2020-12-02 18:37:25','2020-12-02 18:37:25');
+/*!40000 ALTER TABLE `Patient_Device_Scale` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Patient_Diagnosis`
+--
+
+DROP TABLE IF EXISTS `Patient_Diagnosis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Patient_Diagnosis` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lumi_patient_id` int(11) NOT NULL,
+  `icd10_code` varchar(50) NOT NULL,
+  `icd10_name` text NOT NULL,
+  `diagnosis_icd10_url` text,
+  `diagnosis_date` datetime DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Patient_Diagnosis`
+--
+
+LOCK TABLES `Patient_Diagnosis` WRITE;
+/*!40000 ALTER TABLE `Patient_Diagnosis` DISABLE KEYS */;
+INSERT INTO `Patient_Diagnosis` VALUES (1,1,'I50.22','Chronic systolic (congestive) heart failure',NULL,'2018-04-06 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(2,1,'E11','Type 2 diabetes mellitus',NULL,'2000-02-04 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(3,1,'J44.9 ','Chronic obstructive pulmonary disease, unspecified',NULL,'2019-01-05 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(4,2,'I50.42','Chronic combined systolic (congestive) and diastolic (congestive) heart failure',NULL,'2017-02-01 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(5,3,'I50.32 ','Chronic diastolic (congestive) heart failure',NULL,'2018-06-07 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(6,4,'I50.812','Chronic right heart failure',NULL,'2016-05-04 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(7,4,'J44.9 ','Chronic obstructive pulmonary disease, unspecified',NULL,'2018-08-10 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(8,5,'I50.22','Chronic systolic (congestive) heart failure',NULL,'2017-03-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(9,5,'E11.22','Type 2 diabetes mellitus with diabetic chronic kidney disease',NULL,'2016-10-21 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(10,6,'I50.42','Chronic combined systolic (congestive) and diastolic (congestive) heart failure',NULL,'2018-07-24 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(11,7,'I50.32 ','Chronic diastolic (congestive) heart failure',NULL,'2017-08-05 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(12,8,'I50.812','Chronic right heart failure',NULL,'2018-05-29 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(13,9,'I50.9 ','Heart failure, unspecified',NULL,'2015-09-25 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(14,10,'I50.43 ',' Acute on chronic combined systolic (congestive) and diastolic (congestive) heart failure',NULL,'2020-11-01 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(15,11,'I11.0','Hypertensive heart disease with heart failure',NULL,'2017-05-29 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(16,11,'E11','Type 2 diabetes mellitus',NULL,'2014-11-05 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(17,12,'I50.812','Chronic right heart failure',NULL,'2018-05-23 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(18,13,'I50.22','Chronic systolic (congestive) heart failure',NULL,'2019-05-01 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(19,14,'I50.42','Chronic combined systolic (congestive) and diastolic (congestive) heart failure',NULL,'2018-07-31 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(20,15,'I50.42','Chronic combined systolic (congestive) and diastolic (congestive) heart failure',NULL,'2019-08-19 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(21,15,'J13','Pneumonia due to Streptococcus pneumoniae',NULL,'2020-11-15 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(22,16,'I50.32 ','Chronic diastolic (congestive) heart failure',NULL,'2015-03-17 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(23,17,'I50.812','Chronic right heart failure',NULL,'2018-05-17 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(24,18,'I50.811','Acute right heart failure',NULL,'2020-11-18 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(25,18,'E11','Type 2 diabetes mellitus',NULL,'2012-01-19 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(26,19,'I50.812','Chronic right heart failure',NULL,'2018-12-06 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(27,20,'I50.32 ','Chronic diastolic (congestive) heart failure',NULL,'2018-06-26 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(28,21,'I50.812','Chronic right heart failure',NULL,'2017-11-08 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(29,22,'I50.1 ',' Left ventricular failure, unspecified ',NULL,'2018-11-08 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(30,23,'I50.22 ',' Chronic systolic (congestive) heart failure',NULL,'2019-09-01 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(31,23,'E11.65','Type 2 diabetes mellitus with hyperglycemia',NULL,'2000-02-22 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(32,23,'J44.9 ','Chronic obstructive pulmonary disease, unspecified',NULL,'2020-07-08 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(33,24,'I50.30 ','Unspecified diastolic (congestive) heart failure',NULL,'2018-12-26 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(34,25,'I50.814','Right heart failure due to left heart failure',NULL,'2018-08-24 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(35,26,'I50.810','Right heart failure, unspecified',NULL,'2017-11-08 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24'),(36,27,'I50.31 ','Acute diastolic (congestive) heart failure',NULL,'2020-11-05 00:00:00','2020-12-02 18:37:24','2020-12-02 18:37:24');
+/*!40000 ALTER TABLE `Patient_Diagnosis` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Patient_Medication`
+--
+
+DROP TABLE IF EXISTS `Patient_Medication`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Patient_Medication` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lumi_patient_id` int(11) NOT NULL,
+  `ndc_code` varchar(50) DEFAULT NULL,
+  `generic_name` varchar(50) NOT NULL,
+  `rx_norm` int(11) NOT NULL,
+  `dosage` varchar(50) DEFAULT NULL,
+  `category` varchar(50) NOT NULL,
+  `start_date` datetime DEFAULT NULL,
+  `end_date` datetime DEFAULT NULL,
+  `current_taking` tinyint(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Patient_Medication`
+--
+
+LOCK TABLES `Patient_Medication` WRITE;
+/*!40000 ALTER TABLE `Patient_Medication` DISABLE KEYS */;
+INSERT INTO `Patient_Medication` VALUES (1,1,NULL,'Losartan',1942332,'10','ARB','2018-04-06 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(2,1,NULL,'Carvedilol',315576,'10','Beta Blocker','2018-04-06 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(3,1,NULL,'Empagliflozin',1545655,'10','SGLT2','2000-02-04 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(4,1,NULL,'Arformoterol',304962,'10','Bronchodilator','2019-01-05 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(5,2,NULL,'Fosinopril',367691,'10','ACE','2017-02-01 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(6,2,NULL,'Ivabradine',1649495,'10','Channel Blocker','2018-10-12 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(7,3,NULL,'Ramipril',35296,'10','ACE','2018-06-07 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(8,4,NULL,'Captopril',315562,'10','ACE','2016-05-04 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(9,4,NULL,'Furosemide',368487,'10','Diuretic','2018-10-02 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(10,4,NULL,'Arformoterol',304962,'10','Bronchodilator','2018-08-10 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(11,5,NULL,'Enalapril',203123,'10','ACE','2017-03-18 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(12,5,NULL,'Empagliflozin',1545655,'10','SGLT2','2016-10-21 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(13,6,NULL,'Valsartan',69749,'10','ARB','2018-07-24 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(14,6,NULL,'Bumetanide',315499,'10','Diuretic','2018-09-16 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(15,7,NULL,'Losartan',1942332,'10','ARB','2017-08-05 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(16,8,NULL,'Valsartan',69749,'10','ARB','2018-05-29 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(17,9,NULL,'Enalapril',203123,'10','ACE','2015-09-25 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(18,10,NULL,'Bumetanide',315499,'10','Diuretic','2020-11-01 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(19,10,NULL,'Losartan',1942332,'10','ARB','2019-06-02 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(20,11,NULL,'Carvedilol',315576,'10','Beta Blocker','2017-05-29 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(21,11,NULL,'Empagliflozin',1545655,'10','SGLT2','2014-11-05 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(22,12,NULL,'Losartan',1942332,'10','ARB','2018-05-23 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(23,13,NULL,'Valsartan',69749,'10','ARB','2019-05-01 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(24,14,NULL,'Quinapril',35208,'10','ACE','2018-07-31 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(25,14,NULL,'Losartan',1942332,'10','ARB','2018-11-18 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(26,15,NULL,'Quinapril',35208,'10','ACE','2019-08-19 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(27,15,NULL,'Losartan',1942332,'10','ARB','2020-11-15 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(28,16,NULL,'Eplerenone',351257,'10','Aldosterone Antagonist','2015-03-17 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(29,17,NULL,'Valsartan',69749,'10','ARB','2018-05-17 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(30,18,NULL,'Bumetanide',315499,'10','Diuretic','2020-11-18 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(31,18,NULL,'Empagliflozin',1545655,'10','SGLT2','2012-01-19 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(32,19,NULL,'Valsartan',69749,'10','ARB','2018-12-06 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(33,20,NULL,'Valsartan',69749,'10','ARB','2018-06-26 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(34,21,NULL,'Valsartan',69749,'10','ARB','2017-11-08 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(35,22,NULL,'Losartan',1942332,'10','ARB','2018-11-08 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(36,23,NULL,'Valsartan',69749,'10','ARB','2019-09-01 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(37,23,NULL,'Empagliflozin',1545655,'10','SGLT2','2000-02-22 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(38,23,NULL,'Arformoterol',304962,'10','Bronchodilator','2020-07-08 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(39,24,NULL,'Losartan',1942332,'10','ARB','2018-12-26 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(40,25,NULL,'Valsartan',69749,'10','ARB','2018-08-24 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(41,26,NULL,'Fosinopril',367691,'10','ACE','2017-11-08 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(42,27,NULL,'Valsartan',69749,'10','ARB','2020-11-05 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(43,27,NULL,'Fosinopril',367691,'10','ACE','2020-11-05 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24'),(44,27,NULL,'Furosemide',368487,'10','Diuretic','2020-11-05 00:00:00',NULL,1,'2020-12-02 18:37:24','2020-12-02 18:37:24');
+/*!40000 ALTER TABLE `Patient_Medication` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-12-06  8:24:48

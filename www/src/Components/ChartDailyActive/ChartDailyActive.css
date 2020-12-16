@@ -1,0 +1,135 @@
+.apexcharts-toolbar {
+    display: none !important;
+}
+
+.apexcharts-tooltip-title {
+    display: none !important;
+}
+
+.chart-title {
+    color: #71777C;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.chart-daily-active .chart-text {
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #71777C;
+}
+
+.chart-title {
+    width: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chart-title .toolbar {
+    border-bottom: 1px solid #F2F3F4;
+}
+
+.chart-title button {
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    outline: none;
+}
+
+.chart-title button.active {
+    border-bottom: 2px solid #2178C9;
+}
+
+#chartWeight {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #F2F3F4;
+}
+
+.chart-bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.chart-bg .svg {
+    width: 100%;
+    height: 100%;
+    padding: 50px 40px 42px;
+}
+
+.chart-daily-active .apexcharts-xaxistooltip {
+    background: #fff;
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #fff;
+    border-radius: 5px;
+    border: none;
+}
+
+.chart-daily-active {
+    padding: 25px;
+}
+
+.chart-daily-active .apexcharts-xaxistooltip {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px;
+    border-radius: 4px;
+    color: #00AE8B;
+    padding: 4px 6px;
+}
+
+.chart-daily-active .apexcharts-xaxistooltip-text {
+    color: #00AE8B;
+}
+
+.chart-daily-active .apexcharts-xaxistooltip:after,
+.chart-daily-active .apexcharts-xaxistooltip:before {
+    display: none;
+}
+
+.chart-daily-active .apexcharts-tooltip-marker {
+    display: none;
+}
+
+.apexcharts-yaxis {
+    transform: translate(5px, -5px) !important;
+}
+
+.chart-daily-active .apexcharts-xaxistooltip-text {
+    color: #00AE8B;
+}
+
+.chart-daily-active .apexcharts-xaxistooltip:after,
+.weight-chart .apexcharts-xaxistooltip:before {
+    display: none;
+}
+
+.chart-daily-active .apexcharts-tooltip-marker {
+    display: none;
+}
+
+.chart-daily-active .apexcharts-tooltip {
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+
+.chart-daily-active .apexcharts-tooltip-marker {
+    display: none;
+}
+
+.chart-daily-active .apexcharts-tooltip {
+    box-shadow: none;
+}
+
+.chart-daily-active .apexcharts-tooltip-series-group {
+
+    background: #00AE8B;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px;
+}

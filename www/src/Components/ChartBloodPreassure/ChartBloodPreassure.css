@@ -1,0 +1,104 @@
+.blood-preassure .apexcharts-toolbar {
+    display: none;
+}
+
+.chartBloodPressure {
+    padding-top: 24px;
+}
+
+.blood-preassure .apexcharts-tooltip-title {
+    display: none;
+}
+
+.chart-title {
+    color: #71777C;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.chart-title {
+    width: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chart-title .toolbar {
+    border-bottom: 1px solid #F2F3F4;
+}
+
+.chart-title button {
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    outline: none;
+}
+
+.chart-title button.active {
+    border-bottom: 2px solid #2178C9;
+}
+.blood-preassure .apexcharts-xaxistooltip {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px;
+    border-radius: 4px;
+    color: #D42A76;
+    padding: 4px 6px;
+}
+.blood-preassure .apexcharts-xaxistooltip-text {
+      color: #D42A76;
+}
+.blood-preassure .apexcharts-xaxistooltip:after, .blood-preassure .apexcharts-xaxistooltip:before {
+    display: none;
+}
+
+.blood-preassure .apexcharts-legend {
+    display: flex !important;
+    justify-content: end !important;
+    padding: 0 26px !important;
+    bottom: -3px !important;
+}
+.blood-preassure .apexcharts-tooltip-marker {
+    display: none;
+}
+.blood-preassure .apexcharts-tooltip {
+    box-shadow: none;
+}
+.blood-preassure .apexcharts-tooltip-series-group{
+   
+  
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px;
+  }
+ .blood-preassure  .apexcharts-tooltip-series-group:nth-child(1) {
+       background: #2178C9;
+  }
+ .blood-preassure  .apexcharts-tooltip-series-group:nth-child(2) {
+        background: #2178C9;
+        
+  }
+   .blood-preassure  .apexcharts-tooltip-series-group:nth-child(3) {
+       background: #EF476A;
+  }
+
+  .apexcharts-tooltip-y-group, .apexcharts-tooltip-z-group {
+      flex-direction: row-reverse !important;
+  }
+  .apexcharts-tooltip-series-group .apexcharts-tooltip-y-group, .apexcharts-tooltip-series-group .apexcharts-tooltip-z-group {
+    padding: 0;
+  }
+  .apexcharts-tooltip-series-group span{
+      color: #fff;
+      font-family: Karla;
+  }
+.apexcharts-yaxis-label tspan{
+    fill:  #71777C !important;
+}
+.apexcharts-xaxis-label tspan{
+    fill:  #71777C !important;
+}
+

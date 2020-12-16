@@ -1,0 +1,55 @@
+.dtTable {
+    width: 100%;
+    min-width: 550px;
+}
+
+.dtTable tbody {
+    background-color: #fff;
+}
+
+.dtTable thead {
+    position: relative;
+    z-index: 1;
+}
+
+.dtHeader {
+    background: #fff;
+    /* transform: translateY(0); */
+    /* transition: transform 0.03s linear; */
+}
+
+.dtHeadCell {
+    font-size: 12px;
+    font-weight: 400;
+    color: #71777C;
+    padding: 5px 20px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.dtRow {
+    border-bottom: 1px #F2F3F4 solid;
+}
+
+.dtRow:hover {
+    background-color: #FFF9FE;
+}
+
+.dtRowSelected {
+    background: #F3F9FE;
+}
+
+.dtRowSelected:hover {
+    box-shadow: 0 0 3px 2px rgba(0,0,0,0.05);
+}
+
+.dtRow.dtActive {
+    background-color: #F3F9FE;
+}
+
+.dtCell {
+    font-size: 14px;
+    padding: 10px 20px;
+}
+

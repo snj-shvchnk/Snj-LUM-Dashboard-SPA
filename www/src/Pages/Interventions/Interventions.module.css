@@ -1,0 +1,223 @@
+.interventionsPage {
+    display: grid;
+    grid-template-columns: minmax(200px, 310px) minmax(320px,1fr) minmax(250px,420px);
+    grid-gap: 0;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.interventionsTotlas {
+    background: #F4F6F8;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.interventionsList {
+    background: #ffffff;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.05);
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 80px 1fr;
+}
+
+.interventionsTable {
+    overflow: scroll;
+}
+
+.interventionsDetails {
+    background: #ffffff;
+    border-left: 1px #F2F3F4 solid;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 212px minmax(100px, 1fr);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.05);
+    z-index: 30;
+}
+
+.interventionsTotlas .title {
+    padding: 32px 32px 24px;
+    font-size: 24px;
+    color: #373E45;
+    line-height: 24px;
+    margin-bottom: 0;
+    white-space: nowrap;
+    text-overflow: '';
+}
+
+.interventionsList .subtitle {
+    padding: 32px 24px 24px;
+    color: #373E45;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 12px;
+}
+
+.interventionsDetails .subtitle {
+    padding: 32px 24px 24px;
+    color: #373E45;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.interventionsDetailsProfile {
+    background-color: #fff;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.totalsCounter {
+    padding: 0 32px 0;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-gap: 12px;
+    height: 50px;
+}
+
+.totalsCount {
+    font-family: Rubik;
+    font-size: 42px;
+    line-height: 50px;
+    color: #5F6972;
+    text-align: center;
+}
+
+.totalsLabel {
+    color: #71777C;
+    font-size: 14px;
+    line-height: 50px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.totalsSection {
+    padding: 20px 32px 0;
+}
+
+.totalsTitle {
+    font-size: 16px;
+    line-height: 19px;
+    color: #373E45;
+}
+
+.totalsWrapper {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-gap: 10px;
+    overflow: hidden;
+}
+
+.totalsChartWrapper {
+    overflow: hidden;
+}
+
+.totalsChart {
+    box-sizing: border-box;
+    padding: 0;
+    min-height: 0;
+    width: 270%;
+    height: 150px;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 100%;
+    margin-left: -90%;
+    
+    opacity: 0;
+    transform: scale(0);
+    transition: 
+        transform 0.4s ease 0.2s,
+        opacity 0.4s ease 0.2s;
+}
+
+.totalsChart:before {
+    content: " ";
+    display: block;
+    width: 106px;
+    height: 106px;
+    border-radius: 50%;
+    position: absolute;
+    margin-left: 162px;
+    transform: translate(-50%, -50%);
+    margin-top: 75px;
+    box-shadow: inset 0px 2px 15px rgba(0, 0, 0, 0.25);
+    background: transparent;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.totalsChart:after {
+    content: " ";
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #fff;
+    margin-left: 162px;
+    transform: translate(-50%, -50%);
+    margin-top: 75px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.totalsLegend {
+    align-items: center;
+    display: grid;
+}
+
+.totalsSwitch {
+    padding: 10px 32px;
+}
+
+.additionalInfoWrapper {
+    overflow-y: scroll;
+}
+
+.devicesDataHolder {
+    opacity: 0;
+    transition: opacity 0s ease 0s;
+    overflow-x: hidden;
+    padding-right: 20px;
+    padding-left: 10px;
+}
+
+.devicesDataHolderLoaded
+{
+    opacity: 1;
+    transition: opacity 0.8s ease 0s;
+}
+
+.filtersRemoveButtons {
+    margin-top: 5px;
+    padding: 5px 24px 24px;
+}
+
+.filtersRemoveButtons .filtersRemoveBtn {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 28px 0 12px;
+    background-color: #DCDCDC;
+    color: #71777C;
+    text-align: left;
+    display: inline-block;
+    margin: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.filtersRemoveButtons .statusFilterRemoveBtn:hover {
+    background-color: #ccc;
+}
+
+.clearFilters {
+    margin-top: 12px;
+    padding: 0 5px;
+}
+
+.clearFilters a {
+    color: #2178C9;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}

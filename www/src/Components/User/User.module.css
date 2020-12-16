@@ -1,0 +1,27 @@
+.user {
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    grid-gap: 12px;
+    align-items: center;
+    margin: 24px 18px 30px;
+}
+.image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.name {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 100;
+   
+}
+.position {
+    color: #DFE1E3;
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: -0.2px;
+    font-weight: 100;
+}
