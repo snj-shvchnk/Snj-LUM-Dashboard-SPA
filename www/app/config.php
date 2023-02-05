@@ -7,8 +7,8 @@ return array(
 
     // DB access:
     'db_host' => 
-        // '172.19.0.4', // localhost
-        'dev-mysql-lumihealth.cfu55fz2nggd.us-east-2.rds.amazonaws.com', // production
+        '172.19.0.4', // localhost
+        // ..., // production
 
     // local
     // 'db_user' => 'luminhealthsite',
