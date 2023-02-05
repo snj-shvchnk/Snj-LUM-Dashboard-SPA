@@ -26,8 +26,8 @@ return array(
 
     // Google avtorization:
     // more info heare -> https://console.cloud.google.com/apis/credentials
-    'g_auth_client_id' => '289574864021-er1e23mjoij136f62dtruk5jvhl5gd5d.apps.googleusercontent.com',
-    'g_auth_private_key' => '2DEvGfu_px44GOxLjgqmeeWT',
+    'g_auth_client_id' => '...',
+    'g_auth_private_key' => '...',
 
     // Site settings:
     'site_title' => 'LuminHEALTH',
